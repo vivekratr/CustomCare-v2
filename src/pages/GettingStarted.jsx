@@ -78,7 +78,7 @@ const GettingStarted = () => {
         </div>
         {/* 1st image mover */}
         <section className=" w-full overflow-x-hidden">
-          <div className="relative w-[3100%] h-[54px]">
+          <div className="relative horizontalStrip1 w-[3100%] h-[54px]">
             <img
             
               className=" horizontalStrip1 h-[54px] w-auto object-contain"
@@ -90,10 +90,10 @@ const GettingStarted = () => {
 
         {/* 2nd image mover */}
         <section className="w-full mt-[52px] overflow-hidden">
-          <div className="relative w-max overflow-hidden">
+          <div className="relative horizontalStrip1 w-[3100%] h-[54px]">
             <img
               className=" horizontalStrip1 h-[54px] w-auto object-contain"
-              src="https://cdn.discordapp.com/attachments/1198196635780522055/1203054392492826685/image.png?ex=65cfb2b6&is=65bd3db6&hm=ba424c2dc664a84c423b1f707dfa9f210184db28686a648915942b82a05a9f19&"
+              src="https://cdn.discordapp.com/attachments/1198196635780522055/1204740794183847966/image.png?ex=65d5d54c&is=65c3604c&hm=dd62ef28e3a35e8b78c38cbd3223ac11e29f2fdd348c179579bb17e271cc636c&"
               alt=""
             />
           </div>
