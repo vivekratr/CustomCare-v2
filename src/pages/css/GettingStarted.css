@@ -1,0 +1,12 @@
+.horizontalStrip1 {
+    animation: 25s infinite linear moveImage;
+  }
+  
+  @keyframes moveImage {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: -50%;
+    }
+  }
