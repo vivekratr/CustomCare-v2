@@ -12,11 +12,11 @@ const DemoChat = () => {
   const [audioBlob, setAudioBlob] = useState(null);
   const [audioMessages, setAudioMessages] = useState([]);
 
-  const addAudioMessage = (aaudioBlob, isRight,text) => {
-    console.log('insdie addAudioMessage',text);
+  const addAudioMessage = (aaudioBlob, isRight, text) => {
+    console.log("insdie addAudioMessage", text);
     setAudioMessages((prevAudioMessages) => [
       ...prevAudioMessages,
-      { isRight, aaudioBlob,text, id: Date.now() },
+      { isRight, aaudioBlob, text, id: Date.now() },
     ]);
   };
   const [audioURL, setAudioURL] = useState(null);
@@ -76,27 +76,30 @@ const DemoChat = () => {
 
   const handleSendAudio = () => {
     if (audioBlob) {
-      addAudioMessage(audioURL, true,'');
+      addAudioMessage(audioURL, true, "");
       const formData = new FormData();
-      let translateText
+      let translateText;
       formData.append("audio", audioBlob, "audio.wav");
+      // http://127.0.0.1:5000/
 
       axios
         .post("https://customcare-v7j1.onrender.com/", formData, { responseType: "blob" })
+        // .post("http://127.0.0.1:5000/", formData, { responseType: "blob" })
         .then((response) => {
           axios
-          .get("https://customcare-v7j1.onrender.com/anstext").then(
-            (res)=>{
-              console.log('trying text get',res)
-              translateText= res.data
+            .get("https://customcare-v7j1.onrender.com/anstext")
+            // .get("http://127.0.0.1:5000/anstext")
+            .then((res) => {
+              console.log("trying text get", res);
+              translateText = res.data;
               console.log("type of responese data", response);
               // saveAs(response.data, "received_audio.wav");
-    
+
               const formData2 = new FormData();
               formData2.append("audio", audioBlob, "");
-              console.log(translateText)
-              addAudioMessage(response.data,false,translateText)
-            })
+              console.log(translateText);
+              addAudioMessage(response.data, false, translateText);
+            });
           // Assuming the server responds with the audio data
           // axios.post("/api/save", response.data).catch(console.log("err", err));
         })
@@ -115,6 +118,7 @@ const DemoChat = () => {
 
     axios
       .post("https://customcare-v7j1.onrender.com/companyid", jsonData, {
+        // .post("http://127.0.0.1:5000/companyid", jsonData, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -170,7 +174,7 @@ const DemoChat = () => {
           className={`w-[61px] h-[61px] object-cover transition-all duration-500 ${
             !showControl ? "z-[-10] translate-x-[50%] relative" : ""
           }`}
-          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710702406762547/image.png?ex=65ce72a0&is=65bbfda0&hm=bd68778c21df0166c2d65e5058b7a3799a16b094cfc41ce27d0b2bae49004be7&"
+          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710702406762547/image.png?ex=65e0e7a0&is=65ce72a0&hm=838105281a5513ead484debd573d60449a17ecb54b76467dfa221ec3bf959666&"
           alt=""
         />
 
@@ -183,7 +187,8 @@ const DemoChat = () => {
               setShowControl(false);
               setPlayed((p) => !p);
             }}
-            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65ce72b9&is=65bbfdb9&hm=e12d4ec595e3238c6bcf2c3b4d2e524a62a9275b5cbe9fe6c3c5b6c3ade097ef&"
+            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65e0e7b9&is=65ce72b9&hm=6e4b0789fcea7755b02a79d9493f46e849c46b8b76f8a77c27cf5ede1217ba42&"
+            // src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65ce72b9&is=65bbfdb9&hm=e12d4ec595e3238c6bcf2c3b4d2e524a62a9275b5cbe9fe6c3c5b6c3ade097ef&"
             alt=""
           />
         ) : (
@@ -195,7 +200,7 @@ const DemoChat = () => {
               setPlayed((p) => !p);
             }}
             className="w-[106px] h-[106px] animate-spin object-cover"
-            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65ce72b9&is=65bbfdb9&hm=e12d4ec595e3238c6bcf2c3b4d2e524a62a9275b5cbe9fe6c3c5b6c3ade097ef&"
+            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65e0e7b9&is=65ce72b9&hm=6e4b0789fcea7755b02a79d9493f46e849c46b8b76f8a77c27cf5ede1217ba42&"
             alt=""
           />
         )}
@@ -210,7 +215,7 @@ const DemoChat = () => {
             !showControl ? "z-[-10] translate-x-[-50%] relative" : ""
           }`}
           alt=""
-          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710866546524240/image.png?ex=65ce72c7&is=65bbfdc7&hm=4f42fc464319fe5e0600e480050eff1e1b1d33360399f8ea501a607c472c2606&"
+          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710866546524240/image.png?ex=65e0e7c7&is=65ce72c7&hm=9fec6fa9f8c06d7a6e6bcc731b539570803c636fc541ac0f9e4e4fef2b3dee8d&"
         />
       </div>
     </div>
