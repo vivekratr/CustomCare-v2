@@ -69,7 +69,7 @@ const handleSendAudio = () => {
     
     
 
-    axios.post('https://cc-zz9j.onrender.com/', formData, { responseType: 'blob' })
+    axios.post('http://127.0.0.1:5000/', formData, { responseType: 'blob' })
       .then(response => {
         // Assuming the server responds with the audio data
         
@@ -94,7 +94,7 @@ const handleSendCompanyName = () => {
     Company_id: '3',
   };
 
-  axios.post('https://cc-zz9j.onrender.com/companyid', jsonData, {
+  axios.post('http://127.0.0.1:5000/companyid', jsonData, {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -116,7 +116,7 @@ const checkLogin = () => {
     'password':"shreyash@12"
   };
 
-  axios.post('https://cc-zz9j.onrender.com/checkuser', jsonData, {
+  axios.post('http://127.0.0.1:5000/checkuser', jsonData, {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -170,7 +170,7 @@ const handleSendCompanyName_Data = () => {
 
   };
 
-  axios.post('https://cc-zz9j.onrender.com/insertdata', jsonData, {
+  axios.post('http://127.0.0.1:5000/insertdata', jsonData, {
     headers: {
       'Content-Type': 'application/json',
     },
