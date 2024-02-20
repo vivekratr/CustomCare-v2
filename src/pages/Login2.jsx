@@ -16,7 +16,7 @@ const Login2 = () => {
       'password':"shreyash@12"
     };
   
-    axios.post('https://customcare-v7j1.onrender.com/checkuser', jsonData, {
+    axios.post('https://cc-zz9j.onrender.com/checkuser', jsonData, {
       headers: {
         'Content-Type': 'application/json',
       },
