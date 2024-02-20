@@ -110,7 +110,7 @@ const GettingStarted = () => {
           <div className="relative flex items-center justify-center w-[110px] h-[41px] ">
             <img
               className="absolute w-full h-full"
-              src="https://cdn.discordapp.com/attachments/1198196635780522055/1203060984827224175/image.png?ex=65cfb8da&is=65bd43da&hm=56aed5b08c4cb46daa3a32b76af35f9c689d4fea0d80cc84f7c9d41465c38333&"
+              src="https://cdn.discordapp.com/attachments/1198196635780522055/1203060984827224175/image.png?ex=65e22dda&is=65cfb8da&hm=2241cc167998b4a20b04dba999ff8ece2d7104a958a6b9359fe6568bfd12df3b&"
               alt=""
             />
             <div className="w-[3.19rem] relative text-[1rem] font-medium font-montserrat text-white text-center inline-block ">
@@ -149,7 +149,7 @@ const GettingStarted = () => {
           <div className="relative flex items-center justify-center w-[132px] h-[41px] ">
             <img
               className="absolute w-full h-full"
-              src="https://cdn.discordapp.com/attachments/1198196635780522055/1203086983560298566/image.png?ex=65cfd111&is=65bd5c11&hm=7e9afe0a74e57a4738188229b55b9fe1da658e5c027e10563f4ec07596906c4c&"
+              src="https://cdn.discordapp.com/attachments/1198196635780522055/1203086983560298566/image.png?ex=65e24611&is=65cfd111&hm=6a12a7d499b9ebd1177ca079d213dcb87dae2e9a374333308ce2f6e9338c729d&"
               alt=""
             />
             <div className="w-[7.63rem] relative text-[1rem] font-medium font-montserrat text-white text-center inline-block ">
@@ -279,7 +279,7 @@ const GettingStarted = () => {
       <div className="relative w-full">
         <img
           className="absolute top-0 h-[1866px] w-[1670px] object-fill"
-          src="https://cdn.discordapp.com/attachments/1096324843877703713/1203523387113218120/image.png?ex=65d1677f&is=65bef27f&hm=f6ecf31ad43be2e076512306b10263e970c5d82f6fd4a24675f44084a8c43247&"
+          src="https://cdn.discordapp.com/attachments/1096324843877703713/1203523387113218120/image.png?ex=65e3dc7f&is=65d1677f&hm=0662616bb6fca120a350970005e0b0d17ffb22cf97364338b16865e8f5b1b2c5&"
           alt=""
         />
       </div>

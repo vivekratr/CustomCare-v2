@@ -14,20 +14,20 @@ const Chatroom = () => {
   const [audioBlob, setAudioBlob] = useState(null);
   const [audioMessages, setAudioMessages] = useState([]);
   const { compId } = useParams();
-  console.log('compId',compId)
+  console.log("compId", compId);
 
-  const addAudioMessage = (aaudioBlob, isRight,text) => {
-    console.log('insdie addAudioMessage',text);
+  const addAudioMessage = (aaudioBlob, isRight, text) => {
+    console.log("insdie addAudioMessage", text);
     setAudioMessages((prevAudioMessages) => [
       ...prevAudioMessages,
-      { isRight, aaudioBlob,text, id: Date.now() },
+      { isRight, aaudioBlob, text, id: Date.now() },
     ]);
   };
   const [audioURL, setAudioURL] = useState(null);
   const mediaRecorder = useRef(null);
   const chunks = useRef([]);
-  const {isLoggedIn,messages} = useContext(ChatContext)
-  console.log('inside chatrroom',isLoggedIn)
+  const { isLoggedIn, messages } = useContext(ChatContext);
+  console.log("inside chatrroom", isLoggedIn);
 
   const txt =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur obcaecati dolorum suscipit quaerat omnis commodi odit cupiditate corrupti libero labore, nihil neque quos est distinctio fuga, amet nesciunt alias totam magni reiciendis optio voluptas ut. Optio, aspernatur quasi. Quidem, ipsum? Accusantium impedit libero laborum cupiditate! Id sapiente quae quas nesciunt eum voluptatibus vero eaque vel laborum repellendus debitis laudantium enim nisi provident excepturi, molestias est adipisci numquam. Quae dolorum fugiat delectus modi vel alias ipsa animi explicabo ad a exercitationem expedita nostrum provident, excepturi in eius ullam sed, ut quaerat ipsum. Provident, hic fugit? Perspiciatis adipisci ullam, et deleniti consectetur ut consequuntur nisi dolorem optio, nemo unde, distinctio reiciendis aut. Natus rerum dolores voluptatum odio laudantium doloremque. Minima corrupti libero voluptates molestias animi deserunt dolore inventore atque maiores rem harum possimus sequi nihil ipsum similique consequatur reiciendis illo, quae fuga blanditiis hic asperiores. Odio, vitae. Assumenda quod incidunt esse, ullam quae fuga placeat architecto sequi enim adipisci a eos ab laboriosam quasi libero delectus? Cupiditate tempora molestiae voluptates id veniam labore consequatur. Sint nihil iste in obcaecati quis quam ducimus, quae, ex ipsa dolorem molestias rerum facere, reiciendis suscipit illo ipsam eligendi pariatur quas labore. Mollitia voluptatum ducimus enim ratione eaque labore, earum sequi distinctio facere consectetur debitis nemo nulla odio veritatis natus est. Quidem ratione nam error aspernatur placeat nulla quos ab eveniet, inventore natus est vero molestiae quaerat pariatur. Quia eos iure dolorem laboriosam magni assumenda, ratione voluptas aliquam ducimus ea eius obcaecati placeat cumque amet similique voluptates laudantium? Sed libero magnam iure, consectetur dolore aspernatur dolor, dolores quasi nostrum illo corporis adipisci facilis debitis atque perspiciatis. Saepe vitae impedit doloribus corrupti repudiandae accusantium nulla beatae laudantium? Quidem natus nam ab. Tempore culpa, accusantium ratione molestias neque, et fuga nobis officia similique sint atque sapiente aspernatur repudiandae, tempora quos! Nesciunt nulla, accusantium quos recusandae ab possimus. Enim aspernatur eveniet officiis dolorem voluptatem maiores facere facilis quae quis amet molestiae culpa beatae, animi, similique consequatur non, accusantium blanditiis fugiat voluptas fugit illo. Nesciunt quas et repellendus error hic. Pariatur, deleniti. Est saepe vel numquam minima mollitia excepturi quaerat facere totam, explicabo sequi ducimus repudiandae debitis repellendus inventore quae omnis et, ratione consequatur earum. Quaerat, assumenda at ex, quas provident ab tenetur soluta harum eum temporibus reprehenderit similique incidunt ullam officia perspiciatis porro rem quos quisquam architecto blanditiis debitis. Iste rerum esse eos nesciunt illo nisi quaerat dignissimos sapiente perspiciatis dolorum? Rerum, modi magni dolorum vel deleniti beatae sint odio. Est praesentium, nobis consequatur repellendus veniam assumenda ipsum eaque magnam vel porro doloremque sequi illo sit deserunt eos, tempore impedit animi cupiditate ea accusantium adipisci voluptates, dignissimos quasi delectus. Tempora obcaecati voluptatem iure inventore esse sapiente porro voluptatibus accusantium saepe odio. Repellendus perferendis nesciunt accusamus commodi molestias ad libero expedita, quis nisi nihil blanditiis saepe fugiat tempora modi rem possimus sunt culpa consequuntur! Adipisci soluta eos quibusdam natus ullam nisi a aut quaerat perspiciatis esse possimus voluptatem quidem facere autem ducimus ratione, dicta quam blanditiis beatae velit enim? Earum?";
@@ -82,27 +82,29 @@ const Chatroom = () => {
 
   const handleSendAudio = () => {
     if (audioBlob) {
-      addAudioMessage(audioURL, true,'');
+      addAudioMessage(audioURL, true, "");
       const formData = new FormData();
-      let translateText
+      let translateText;
       formData.append("audio", audioBlob, "audio.wav");
 
       axios
-        .post("https://customcare-v7j1.onrender.com/", formData, { responseType: "blob" })
+        .post("https://customcare-v7j1.onrender.com/", formData, {
+          responseType: "blob",
+        })
         .then((response) => {
           axios
-          .get("https://customcare-v7j1.onrender.com/anstext").then(
-            (res)=>{
-              console.log('trying text get',res)
-              translateText= res.data
+            .get("https://customcare-v7j1.onrender.com/anstext")
+            .then((res) => {
+              console.log("trying text get", res);
+              translateText = res.data;
               console.log("type of responese data", response);
               // saveAs(response.data, "received_audio.wav");
-    
+
               const formData2 = new FormData();
               formData2.append("audio", audioBlob, "");
-              console.log(translateText)
-              addAudioMessage(response.data,false,translateText)
-            })
+              console.log(translateText);
+              addAudioMessage(response.data, false, translateText);
+            });
           // Assuming the server responds with the audio data
           // axios.post("/api/save", response.data).catch(console.log("err", err));
         })
@@ -176,7 +178,7 @@ const Chatroom = () => {
           className={`w-[61px] h-[61px] object-cover transition-all duration-500 ${
             !showControl ? "z-[-10] translate-x-[50%] relative" : ""
           }`}
-          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710702406762547/image.png?ex=65ce72a0&is=65bbfda0&hm=bd68778c21df0166c2d65e5058b7a3799a16b094cfc41ce27d0b2bae49004be7&"
+          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710702406762547/image.png?ex=65e0e7a0&is=65ce72a0&hm=838105281a5513ead484debd573d60449a17ecb54b76467dfa221ec3bf959666&"
           alt=""
         />
 
@@ -189,7 +191,7 @@ const Chatroom = () => {
               setShowControl(false);
               setPlayed((p) => !p);
             }}
-            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65ce72b9&is=65bbfdb9&hm=e12d4ec595e3238c6bcf2c3b4d2e524a62a9275b5cbe9fe6c3c5b6c3ade097ef&"
+            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65e0e7b9&is=65ce72b9&hm=6e4b0789fcea7755b02a79d9493f46e849c46b8b76f8a77c27cf5ede1217ba42&"
             alt=""
           />
         ) : (
@@ -201,7 +203,7 @@ const Chatroom = () => {
               setPlayed((p) => !p);
             }}
             className="w-[106px] h-[106px] animate-spin object-cover"
-            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65ce72b9&is=65bbfdb9&hm=e12d4ec595e3238c6bcf2c3b4d2e524a62a9275b5cbe9fe6c3c5b6c3ade097ef&"
+            src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710806765109278/image.png?ex=65e0e7b9&is=65ce72b9&hm=6e4b0789fcea7755b02a79d9493f46e849c46b8b76f8a77c27cf5ede1217ba42&"
             alt=""
           />
         )}
@@ -216,7 +218,7 @@ const Chatroom = () => {
             !showControl ? "z-[-10] translate-x-[-50%] relative" : ""
           }`}
           alt=""
-          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710866546524240/image.png?ex=65ce72c7&is=65bbfdc7&hm=4f42fc464319fe5e0600e480050eff1e1b1d33360399f8ea501a607c472c2606&"
+          src="https://cdn.discordapp.com/attachments/1198196635780522055/1202710866546524240/image.png?ex=65e0e7c7&is=65ce72c7&hm=9fec6fa9f8c06d7a6e6bcc731b539570803c636fc541ac0f9e4e4fef2b3dee8d&"
         />
       </div>
     </div>
