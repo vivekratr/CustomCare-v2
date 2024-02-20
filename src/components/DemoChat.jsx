@@ -83,11 +83,11 @@ const DemoChat = () => {
       // http://127.0.0.1:5000/
 
       axios
-        .post("https://cc-zz9j.onrender.com", formData, { responseType: "blob" })
+        .post("http://127.0.0.1:5000", formData, { responseType: "blob" })
         // .post("http://127.0.0.1:5000/", formData, { responseType: "blob" })
         .then((response) => {
           axios
-            .get("https://cc-zz9j.onrender.com/anstext")
+            .get("http://127.0.0.1:5000/anstext")
             // .get("http://127.0.0.1:5000/anstext")
             .then((res) => {
               console.log("trying text get", res);
@@ -117,7 +117,7 @@ const DemoChat = () => {
     };
 
     axios
-      .post("https://cc-zz9j.onrender.com/companyid", jsonData, {
+      .post("http://127.0.0.1:5000/companyid", jsonData, {
         // .post("http://127.0.0.1:5000/companyid", jsonData, {
         headers: {
           "Content-Type": "application/json",
