@@ -17,7 +17,7 @@ const DemoChat = () => {
     setAudioMessages((prevAudioMessages) => [
       ...prevAudioMessages,
       { isRight, aaudioBlob, text, id: Date.now() },
-    ]);
+    ]); 
   };
   const [audioURL, setAudioURL] = useState(null);
   const mediaRecorder = useRef(null);
