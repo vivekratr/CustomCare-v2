@@ -16,7 +16,7 @@ const Login2 = () => {
       'password':"shreyash@12"
     };
   
-    axios.post('https://cc-zz9j.onrender.com/checkuser', jsonData, {
+    axios.post('http://127.0.0.1:5000/checkuser', jsonData, {
       headers: {
         'Content-Type': 'application/json',
       },
