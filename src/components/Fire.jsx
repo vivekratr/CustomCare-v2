@@ -80,10 +80,10 @@ const Fire = () => {
       formData.append("audio", audioBlob, "audio.wav");
 
       axios
-        .post("https://customcare-v7j1.onrender.com/", formData, { responseType: "blob" })
+        .post("https://cc-zz9j.onrender.com", formData, { responseType: "blob" })
         .then((response) => {
           axios
-          .get("https://customcare-v7j1.onrender.com/anstext").then(
+          .get("https://cc-zz9j.onrender.com/anstext").then(
             (res)=>{
               console.log('trying text get',res)
               translateText= res.data
@@ -112,7 +112,7 @@ const Fire = () => {
     };
 
     axios
-      .post("https://customcare-v7j1.onrender.com/companyid", jsonData, {
+      .post("https://cc-zz9j.onrender.com/companyid", jsonData, {
         headers: {
           "Content-Type": "application/json",
         },
