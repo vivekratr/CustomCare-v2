@@ -21,7 +21,7 @@ const Demo = () => {
   
     };
   
-    axios.post('https://customcare-v7j1.onrender.com/insertdata', jsonData, {
+    axios.post('https://cc-zz9j.onrender.com/insertdata', jsonData, {
       headers: {
         'Content-Type': 'application/json',
       },
