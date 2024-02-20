@@ -86,7 +86,7 @@ const handleSendAudio = () => {
     const formData = new FormData();
     formData.append('audio', audioBlob, 'audio.wav');
 
-    axios.post('https://cc-zz9j.onrender.com', formData, { responseType: 'blob' })
+    axios.post('http://127.0.0.1:5000', formData, { responseType: 'blob' })
       .then(response => {
         // Assuming the server responds with the audio data
         saveAs(response.data, 'received_audio.wav');
