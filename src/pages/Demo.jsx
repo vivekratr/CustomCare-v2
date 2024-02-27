@@ -12,7 +12,7 @@ const Demo = () => {
   const navigate = useNavigate();
 
   const handleSendCompanyName_Data = () => {
-    const jsonData = {
+    const jsonData = { 
       Company_id: '1012',
       Terms_and_condition:term,
       CIN:3,
