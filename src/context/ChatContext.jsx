@@ -8,7 +8,7 @@ export const ChatContext = React.createContext();
 
 
 
-export const ChatProvider = ({ children }) => { 
+export const ChatProvider = ({ children }) => {  
   const getEthereumContract = async () => {
     console.log(contractABI, contractAddress);
     const { ethereum } = window;
